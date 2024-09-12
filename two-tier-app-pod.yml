@@ -1,0 +1,21 @@
+apiVersion : v1
+kind : pod
+metadata :
+  name : two-tier-app-pod
+spec :
+  container :
+    - name : two-tier-app-pod
+    - image : dockerhub
+  environment :
+    - name: MYSQL_HOST
+        value: " "          # this is your mysql's service clusture IP, Make sure to change it with yours
+      - name: MYSQL_PASSWORD
+        value: "admin"
+      - name: MYSQL_USER
+        value: "root"
+      - name: MYSQL_DB
+        value: "mydb"
+  ports :
+      - 5000: 5000
+    imagePullPolicy: Always
+    
